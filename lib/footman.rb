@@ -7,7 +7,7 @@ class Footman
   attr_accessor :health_points, :attack_power
   def initialize
     @health_points = DEFAULT_HEALTH
-    @attack_power = DEFAULT_POWER
+    @attack_power = DEFAULT_POWERgit 
   end
 
 end
