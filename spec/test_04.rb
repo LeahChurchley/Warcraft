@@ -20,6 +20,7 @@ describe Barracks do
     it "returns false if there isn't enough food" do
       # Make the barracks believe it only has 1 food item left, even though it starts with 80
       # This is done by overwriting the `food` getter method
+      @barracks.stub(:food).with(1) #this is how to do a stub
       expect(@barracks).to receive(:food).and_return(1)
       expect(@barracks.can_train_footman?).to be_falsey
     end
@@ -27,6 +28,7 @@ describe Barracks do
     it "returns false if there isn't enough gold" do
       # Make the barracks believe it only has 134 gold left, even though it starts with 1000
       # This is done by overwriting the `gold` getter method
+      @barracks.stub(:gold).with(134)
       expect(@barracks).to receive(:gold).and_return(134)
       expect(@barracks.can_train_footman?).to be_falsey
     end
