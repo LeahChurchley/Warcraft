@@ -1,15 +1,22 @@
 class Barracks
 
-  GOLD = 1000
-  FOOD = 80
+  # gold = 1000
+  # food = 80
 
   attr_accessor :gold, :food
   def initialize
-    @gold = GOLD
-    @food = FOOD
+    @gold = 1000
+    @food = 80
   end
+  
   
   def can_train_footman?
     true
+  end
+
+  def train_footman
+    @gold -= 135
+    @food -= 2
+    Footman.new
   end
 end
