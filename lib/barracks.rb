@@ -1,20 +1,9 @@
 class Barracks
-
-  attr_accessor :gold, :food
-  def initialize
+  attr_reader :gold, :food
+  
+  def initialize 
     @gold = 1000
     @food = 80
-  end
-  
-  
-  def can_train_footman?
-    if food < 2
-      false
-    elsif gold < 135
-      false
-    else
-      true
-    end  
   end
 
   def train_footman
@@ -26,4 +15,39 @@ class Barracks
       nil
     end
   end
+
+  def train_peasant
+    if can_train_peasant?
+      @gold -= 90
+      @food -= 5
+      Peasant.new
+    else
+      nil
+    end
+  end
+  
+
+  def can_train_peasant?
+    if gold >= 90 && food >= 5
+      true
+    else
+      false
+    end
+  end
+
+  attr_accessor :gold, :food
+  def initialize
+    @gold = 1000
+    @food = 80
+  end
+  
+  
+  def can_train_footman?
+    if gold >= 135 && food >= 2
+      true
+    else
+      false
+    end
+  end
+
 end
